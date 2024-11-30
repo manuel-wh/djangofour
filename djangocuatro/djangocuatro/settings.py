@@ -17,13 +17,13 @@ import environ
 # # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-print(BASE_DIR, "asdfasfasfsa2")
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 # Get the djangofour_ENVIRON value to load the env variables
 server_env = os.environ.get('DJANGOFOUR_ENVIRON') or 'development'
-print(server_env, "asdfasfasfsa")
-path = str(BASE_DIR / F'.config/environment/{server_env}/.env')
-print(path, "asdfasfasfsa") 
+
+path = str(BASE_DIR / f'.config/environment/{server_env}/.env')
+
 environ.Env.read_env(path)
 
 env = environ.Env(
@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangocuatro.apps.users',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +76,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'djangocuatro.urls'
+ROOT_URLCONF = 'djangocuatro.core.urls'
 
 TEMPLATES = [
     {
@@ -93,7 +94,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'djangocuatro.wsgi.application'
+WSGI_APPLICATION = 'djangocuatro.core.wsgi.application'
 
 
 # Database
@@ -145,4 +146,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# AUTH_USER_MODEL = 'accounts.CustomUser'
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'djangocuatro/static',
+]
+
+AUTH_USER_MODEL = 'users.User'
