@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 
-from django.urls import path, re_path
+from django.urls import path, re_path, include
+from djangocuatro import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
+    path('webauthn/', include('webauthn.urls')),
+    path('', views.index, name='index'),
 ]

@@ -64,6 +64,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangocuatro.apps.users',
+    'djangocuatro.apps.sistema',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'webauthn',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +79,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'djangocuatro.core.urls'
@@ -81,7 +87,7 @@ ROOT_URLCONF = 'djangocuatro.core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'djangocuatro' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -155,6 +161,25 @@ STATICFILES_DIRS = [
 ]
 
 AUTH_USER_MODEL = 'users.User'
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'djangocuatro' / 'static']
+
+LOTE_PRINCIPAL = "A"
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+WEBAUTHN_RP_NAME = 'Panda MIY'
+WEBAUTHN_RP_ID = 'pandamiy.com'
+WEBAUTHN_ORIGIN = 'https://yourdomain.com'
 
 try:
     # Try import settings_server.py for local purpose.
