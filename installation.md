@@ -1,4 +1,4 @@
-# djangofour# Manual para iniciar un proyecto de Django
+# djangocuatro# Manual para iniciar un proyecto de Django
 
 # Estructura del proyecto
 
@@ -12,7 +12,7 @@ Para iniciar un proyecto siga las siguientes instrucciónes
    
    Copiamos todo este archivo en una carpeta temporal.
 
-   Reemplazamos todo lo que diga `djangofour` por el nombre de tu proyecto.
+   Reemplazamos todo lo que diga `djangocuatro` por el nombre de tu proyecto.
 
    Ejemplo:
    ![image](https://user-images.githubusercontent.com/85954707/156051961-e5dd88c9-d0aa-41a6-b365-47ed150a4bfb.png)
@@ -37,7 +37,7 @@ Para iniciar un proyecto siga las siguientes instrucciónes
    2.2 En la terminal copia y pegue las siguientes variables para definirlas y que nos ayuden en las siguientes instrucciones
 
     ```bash
-   export PROJECT_NAME="djangofour"
+   export PROJECT_NAME="djangocuatro"
    export PROJECT_DIR=$(pwd)/$PROJECT_NAME
     ```
 
@@ -187,8 +187,8 @@ Para iniciar un proyecto siga las siguientes instrucciónes
    # Build paths inside the project like this: BASE_DIR / 'subdir'.
    BASE_DIR = Path(__file__).resolve().parent.parent
    
-   # Get the djangofour_ENVIRON value to load the env variables
-   server_env = os.environ.get('djangofour_ENVIRON') or 'development'
+   # Get the djangocuatro_ENVIRON value to load the env variables
+   server_env = os.environ.get('djangocuatro_ENVIRON') or 'development'
    path = str(BASE_DIR / F'.config/environment/{server_env}/.env')
    environ.Env.read_env(path)
    
@@ -210,7 +210,7 @@ Para iniciar un proyecto siga las siguientes instrucciónes
 
    
 
-   6.5 En la instrucción del settings `server_env = os.environ.get('djangofour_ENVIRON') or 'development'`, cambie su `djangofour_ENVIRON` para que todo quede en mayusculas.
+   6.5 En la instrucción del settings `server_env = os.environ.get('djangocuatro_ENVIRON') or 'development'`, cambie su `djangocuatro_ENVIRON` para que todo quede en mayusculas.
    ![image](https://user-images.githubusercontent.com/85954707/156002442-4311c68c-5a6e-423a-bfad-6ffa2820b39f.png)
 
 
@@ -394,7 +394,7 @@ Para iniciar un proyecto siga las siguientes instrucciónes
    !.config/environment/production/.gitkeep
    
    # Ignore settings_server.py. Because it's for local purpose
-   djangofour/settings_server.py
+   djangocuatro/settings_server.py
    
    # Ignore all developer's notes
    .notes/*
@@ -407,8 +407,8 @@ Para iniciar un proyecto siga las siguientes instrucciónes
    !static/.gitkeep
    
    # Ignore all media files
-   djangofour/media/*
-   !djangofour/media/.gitkeep
+   djangocuatro/media/*
+   !djangocuatro/media/.gitkeep
    
    ```
 
@@ -419,7 +419,7 @@ Para iniciar un proyecto siga las siguientes instrucciónes
    
    git init
    git add .
-   git commit -m "Inicio proyecto djangofour"
+   git commit -m "Inicio proyecto djangocuatro"
    ```
 
    7.3 (OPCIONAL) Puedes subir tu primer commit a algun repositorio si lo deseas agregando su remote y dando push.
@@ -462,13 +462,13 @@ Para iniciar un proyecto siga las siguientes instrucciónes
    8.3.1 Busca la variable `ROOT_URLCONF` y reemplaza su valor por lo siguiente.
 
    ```python
-   ROOT_URLCONF = 'djangofour.core.urls'
+   ROOT_URLCONF = 'djangocuatro.core.urls'
    ```
 
    8.3.2 Busca la variable `WSGI_APPLICATION` y reemplaza su valor por lo siguiente.
 
    ```python
-   WSGI_APPLICATION = 'djangofour.core.wsgi.application'
+   WSGI_APPLICATION = 'djangocuatro.core.wsgi.application'
    ```
 
 ---
@@ -578,7 +578,7 @@ Para iniciar un proyecto siga las siguientes instrucciónes
 
     ```python
     STATICFILES_DIRS = [
-        BASE_DIR / 'djangofour/static',
+        BASE_DIR / 'djangocuatro/static',
     ]
     ```
 
@@ -639,7 +639,7 @@ Para iniciar un proyecto siga las siguientes instrucciónes
     from django.contrib import admin
     from django.contrib.auth.admin import UserAdmin
     # local packages
-    from djangofour.apps.users.models import User
+    from djangocuatro.apps.users.models import User
     
     
     # Register your models here.
@@ -661,7 +661,7 @@ Para iniciar un proyecto siga las siguientes instrucciónes
     
     class UsersConfig(AppConfig):
         default_auto_field = 'django.db.models.BigAutoField'
-        name = 'djangofour.apps.users'
+        name = 'djangocuatro.apps.users'
     ```
 
     16.4 Modifique el archivo `settings.py` para terminar la configuración del modelo custom de __*"User"*__. 
@@ -677,7 +677,7 @@ Para iniciar un proyecto siga las siguientes instrucciónes
     ```python
     INSTALLED_APPS = [
         # ...
-        'djangofour.apps.users',
+        'djangocuatro.apps.users',
     ]
     ```
 

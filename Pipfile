@@ -6,6 +6,13 @@ name = "pypi"
 [packages]
 django = "==4.2"
 django-environ = "*"
+django-stdimage = "*"
+django-countries = "*"
+mysql-connector-python = "*"
+django-allauth = "*"
+django-webauthn = "*"
+pywarp = "*"
+cbor2 = "*"
 
 [dev-packages]
 
